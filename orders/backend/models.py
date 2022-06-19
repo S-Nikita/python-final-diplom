@@ -90,6 +90,7 @@ class Shop():
                                 blank=True, null=True,
                                 on_delete=models.CASCADE)
     state = models.BooleanField(verbose_name='статус получения заказов', default=True)
+    delivery_price = models.PositiveIntegerField(verbose_name='Цена доставки')
 
     # filename
 
