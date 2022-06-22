@@ -36,7 +36,6 @@ class UserManager(BaseUserManager):
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
-        user.save(using=self._db)
         return user
 
     def create_user(self, email, password=None, **extra_fields):
@@ -83,7 +82,7 @@ class User(AbstractUser):
 
 
 
-class Shop():
+class Shop(models.Model):
     name = models.CharField(max_length=50, verbose_name='Название')
     url = models.URLField(verbose_name='Ссылка', null=True, blank=True)
     user = models.OneToOneField(User, verbose_name='Пользователь',
