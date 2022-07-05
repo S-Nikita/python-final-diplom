@@ -1,0 +1,87 @@
+# примеры API-запросов
+
+@baseUrl = http://localhost:8000/api/v1
+
+# Регистрация пользователя
+POST {{baseUrl}}/user/register
+Content-Type: application/json
+Authorization: Token 68decf9ded55cc45c907e78bfab6455748f8bf6b
+
+{
+    "first_name": "Ivan", 
+    "last_name": "Ivanov", 
+    "email": "ivanivanov@gmail.com",
+    "username": "ivanov@gmail.com",
+    "password": "Qwert^%!@#B", 
+    "company": "ООО Ромашка", 
+    "position": "Менеджер по продажам",
+    "type": "shop"
+}
+###
+
+# Регистрация поставщика
+POST {{baseUrl}}/user/register
+Content-Type: application/json
+Authorization: Token 68decf9ded55cc45c907e78bfab6455748f8bf6b
+
+{
+    "first_name": "Ivan", 
+    "last_name": "Ivanov", 
+    "email": "ivanov@gmail.com",
+    "username": "ivanov@gmail.com",
+    "password": "Qwert^%!@#B", 
+    "company": "ООО Ромашка", 
+    "position": "Стажер",
+    "type": "shop"
+}
+
+###
+# Подтверждение аккаунта 
+POST {{baseUrl}}/user/register/confirm
+Content-Type: application/json
+Authorization: Token 17bb6fb0176b5eac4bb
+
+{
+    "email": "lzlsubzerolzl@gmail.com", 
+    "token": "17bb6fb0176b5eac4bb"
+}
+
+###
+# Подтверждение аккаунта 
+POST {{baseUrl}}/user/register/confirm
+Content-Type: application/json
+Authorization: Token f0da50bd22cf5f603e3fe
+
+{
+    "email": "ivanivanov@gmail.com", 
+    "token": "f0da50bd22cf5f603e3fe"
+}
+
+###
+# Авторизация аккаунта
+POST {{baseUrl}}/user/login
+Content-Type: application/json
+Authorization: Token 68decf9ded55cc45c907e78bfab6455748f8bf6b
+
+{
+    "email": "lzlsubzerolzl@gmail.com", 
+    "password": "Qwert^%!@#B"
+}
+
+###
+# Авторизация аккаунта
+POST {{baseUrl}}/user/login
+Content-Type: application/json
+Authorization: Token 68decf9ded55cc45c907e78bfab6455748f8bf6b
+
+{
+    "email": "ivanivanov@gmail.com", 
+    "password": "Qwert^%!@#B"
+}
+###
+
+
+# Просмотр информации пользователей
+GET {{baseUrl}}/user/details
+Content-Type: application/json
+Authorization: Token 2f9d51a7a19929b3b096e77db356a36c66c42d2b

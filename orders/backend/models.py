@@ -88,8 +88,7 @@ class Shop(models.Model):
     user = models.OneToOneField(User, verbose_name='Пользователь',
                                 blank=True, null=True,
                                 on_delete=models.CASCADE)
-    state = models.BooleanField(verbose_name='статус получения заказов', default=True)
-    delivery_price = models.PositiveIntegerField(verbose_name='Цена доставки')
+    delivery_price = models.PositiveIntegerField(verbose_name='Цена доставки', default=True)
     state = models.BooleanField(verbose_name='статус получения заказов', default=True)
 
     # filename

@@ -1,4 +1,5 @@
 shop: Связной
+- delivery_price: 2500
 categories:
   - id: 224
     name: Смартфоны

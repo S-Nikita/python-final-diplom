@@ -18,9 +18,9 @@ from rest_framework.views import APIView
 from ujson import loads as load_json
 from yaml import load as load_yaml, Loader
 from backend.signals import new_user_registered, new_order
-from orders.backend.models import Category, ConfirmEmailToken, Contact, Order, OrderItem, Parameter, Product, ProductCard, ProductParameter, Shop
+from backend.models import Category, ConfirmEmailToken, Contact, Order, OrderItem, Parameter, Product, ProductCard, ProductParameter, Shop
 
-from orders.backend.serializers import CategorySerializer, ContactSerializer, OrderItemSerializer, OrderSerializer, ProductCardSerializer, ShopSerializer, UserSerializer
+from backend.serializers import CategorySerializer, ContactSerializer, OrderItemSerializer, OrderSerializer, ProductCardSerializer, ShopSerializer, UserSerializer
 
 class RegisterAccount(APIView):
     """
@@ -44,9 +44,6 @@ class RegisterAccount(APIView):
                     error_array.append(item)
                 return JsonResponse({'Status': False, 'Errors': {'password': error_array}})
             else:
-                # проверяем данные для уникальности имени пользователя
-                request.data._mutable = True
-                request.data.update({})
                 user_serializer = UserSerializer(data=request.data)
                 if user_serializer.is_valid():
                     # сохраняем пользователя
